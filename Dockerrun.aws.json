@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+   {
+    "name": "client",
+    "image": "stevezmac/multi-client",
+    "hostname": "client",
+    "essential": false 
+   },
+   {
+    "name": "server",
+    "image": "stevezmac/multi-server",
+    "hostname": "api",
+    "essential": false 
+   },
+   {
+    "name": "worker",
+    "image": "stevezmac/multi-worker",
+    "hostname": "worker",
+    "essential": false 
+   },
+   {
+    "name": "nginx",
+    "image": "stevezmac/multi-nginx",
+    "hostname": "nginx",
+    "essential": true,
+    "portMappings": [
+     {
+      "hostPort": 80,
+      "containerPort": 80
+     }
+    ],
+    "links": ["client","server"]
+   }
+  ]
+}
