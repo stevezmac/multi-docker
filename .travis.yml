@@ -13,7 +13,7 @@ after_success:
  - docker build -t stevezmac/multi-nginx ./nginx
  - docker build -t stevezmac/multi-server ./server
  - docker build -t stevezmac/multi-worker ./worker
-# log in to the docker CLI update
+# log in to the docker CLI update ##
  - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
 # take those images and push them to docker hub
  - docker push stevezmac/multi-client
